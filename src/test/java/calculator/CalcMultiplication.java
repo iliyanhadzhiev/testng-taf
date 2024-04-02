@@ -9,9 +9,9 @@ public class CalcMultiplication {
     @DataProvider(name = "numProvider")
     public Object[][] numProvider() {
         return new Object[][] {
-                {5, 1, 4},
+                {5, 6, 30},
                 {-2, 2, -4},
-                {19, -41, 60}
+                {3, -4, -12}
         };
     }
 
