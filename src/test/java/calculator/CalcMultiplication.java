@@ -11,7 +11,7 @@ public class CalcMultiplication {
         return new Object[][] {
                 {5, 6, 30},
                 {-2, 2, -4},
-                {3, -4, -12}
+                {3, 0, 0}
         };
     }
 
