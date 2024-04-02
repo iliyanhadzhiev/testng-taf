@@ -35,7 +35,7 @@
 
             <class name="calculator.CalcMultiplication">
                 <methods>
-                    <include name=""/>
+                    <include name="validateNumMultiplication"/>
                 </methods>
             </class>
 
