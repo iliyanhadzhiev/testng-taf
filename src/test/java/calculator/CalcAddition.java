@@ -15,7 +15,7 @@ public class CalcAddition {
         };
     }
 
-    @Test(dataProvider = "numProvider", groups = "addition")
+    @Test(dataProvider = "numProvider", groups = "addition", suiteName = "CalculatorOperations")
     public void validateNumAddition(double num1, double num2, double expectedResult) {
 
         double firstProvidedNum = num1;
