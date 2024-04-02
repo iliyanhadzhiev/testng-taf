@@ -23,13 +23,13 @@
 
             <class name="calculator.CalcDivision">
                 <methods>
-                    <include name=""/>
+                    <include name="validateNumDivision"/>
                 </methods>
             </class>
 
             <class name="calculator.CalcModulus">
                 <methods>
-                    <include name=""/>
+                    <include name="validateNumModulus"/>
                 </methods>
             </class>
 
