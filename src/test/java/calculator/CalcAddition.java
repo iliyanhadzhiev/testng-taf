@@ -16,15 +16,15 @@ public class CalcAddition {
     }
 
     @Test(dataProvider = "numProvider", groups = "addition", suiteName = "CalculatorOperations")
-    public void validateNumAddition(double num1, double num2, double expectedResult) {
+    public void validateNumAddition(double num1, double num2, double result) {
 
         double firstProvidedNum = num1;
         double secondProvidedNum = num2;
-        double expectedAdditionResult = expectedResult;
-        double actualAdditionResult = firstProvidedNum + secondProvidedNum;
+        double expectedResult = result;
+        double actualResult = firstProvidedNum + secondProvidedNum;
 
-        System.out.println("The addition of " + firstProvidedNum + " and " + secondProvidedNum + " is equal: " + actualAdditionResult);
+        System.out.println("The addition of " + firstProvidedNum + " and " + secondProvidedNum + " is equal: " + actualResult);
 
-        Assert.assertEquals(expectedAdditionResult, actualAdditionResult);
+        Assert.assertEquals(expectedResult, actualResult);
     }
 }

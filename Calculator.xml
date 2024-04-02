@@ -41,7 +41,7 @@
 
             <class name="calculator.CalcSubtraction">
                 <methods>
-                    <include name=""/>
+                    <include name="validateNumSubtraction"/>
                 </methods>
             </class>
 
