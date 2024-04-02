@@ -1,0 +1,51 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="CalculatorOperations" verbose="1" parallel="methods" thread-count="2">
+    <test name="Calculator Operations">
+
+        <groups>
+            <run>
+                <include name="addition"/>
+                <include name="subtraction"/>
+                <include name="multiplication"/>
+                <include name="division"/>
+                <include name="modulus"/>
+            </run>
+        </groups>
+
+        <classes>
+
+            <class name="calculator.CalcAddition">
+                <methods>
+                    <include name="validateNumAddition"/>
+                </methods>
+            </class>
+
+            <class name="calculator.CalcDivision">
+                <methods>
+                    <include name=""/>
+                </methods>
+            </class>
+
+            <class name="calculator.CalcModulus">
+                <methods>
+                    <include name=""/>
+                </methods>
+            </class>
+
+            <class name="calculator.CalcMultiplication">
+                <methods>
+                    <include name=""/>
+                </methods>
+            </class>
+
+            <class name="calculator.CalcSubtraction">
+                <methods>
+                    <include name=""/>
+                </methods>
+            </class>
+
+        </classes>
+
+    </test>
+</suite>
