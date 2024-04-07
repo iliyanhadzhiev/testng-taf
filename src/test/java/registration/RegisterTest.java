@@ -216,7 +216,7 @@ public class RegisterTest {
         homeButton.click();
         String currentUrlAfterClickingHomeButton = driver.getCurrentUrl();
         Assert.assertEquals(currentUrlAfterClickingHomeButton, HOME_PAGE);
-
+        System.out.println("7.2. User is on Home page");
     }
 
 
