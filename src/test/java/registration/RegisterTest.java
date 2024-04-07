@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -156,8 +157,9 @@ public class RegisterTest {
         typeTextInInput(emailField, "i1-test@test.i1");
 
         System.out.println("4.3. Populating date of birth: 11/22/1980");
-        birthDateField.click();
-        birthDateField.sendKeys("11/22/1980");
+//        birthDateField.click();
+//        birthDateField.sendKeys("11/22/1980");
+        typeTextInInput(birthDateField, "11/22/1980");
 
         System.out.println("4.4. Populating password: i1$qual!Ty");
         typeTextInInput(passwordField, "i1$qual!Ty");
@@ -169,10 +171,17 @@ public class RegisterTest {
         typeTextInInput(publicInfoField, "i1");
         System.out.println();
 
-        System.out.println("5. Completing registration. Clicking on the \"Sign in\" button.");
+        System.out.println("4.7. Clicking on the \"Sign in\" button.");
         signInButton.click();
     }
 
+    @Test (priority = 2)
+    public void validateUserIsCreated() throws InterruptedException {
+        WebElement profileButton = driver.findElement(By.cssSelector("#nav-link-profile"));
+        boolean isProfileButtonDisplayed = profileButton.isDisplayed();
+        Assert.assertTrue(isProfileButtonDisplayed);
+        System.out.println("5. Successful registration. User is created.");
+    }
 
 
     public void typeTextInInput(WebElement element, String text) {
@@ -181,12 +190,11 @@ public class RegisterTest {
         element.sendKeys(text);
     }
 
-
-//    @AfterClass
-//    public void closeBrowser() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @AfterClass
+    public void closeBrowser() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
 }
