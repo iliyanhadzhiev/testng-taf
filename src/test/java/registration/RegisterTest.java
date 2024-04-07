@@ -219,6 +219,19 @@ public class RegisterTest {
         System.out.println("7.2. User is on Home page");
     }
 
+    @Test (priority = 5)
+    public void validateLoginButton() throws InterruptedException {
+        driver.get(REGISTER_PAGE);
+        WebElement loginButton = driver.findElement(By.cssSelector("#nav-link-login"));
+        boolean isLoginButtonDisplayed = loginButton.isDisplayed();
+        Assert.assertTrue(isLoginButtonDisplayed);
+        System.out.println("8. Login button is displayed");
+        System.out.println("8.1. Clicking on Login button");
+        loginButton.click();
+        String currentUrlAfterClickingLoginButton = driver.getCurrentUrl();
+        Assert.assertEquals(currentUrlAfterClickingLoginButton, LOGIN_PAGE);
+        System.out.println("8.2. User is on the Login page");
+    }
 
     public void typeTextInInput(WebElement element, String text) {
         wait.until(ExpectedConditions.visibilityOf(element));
