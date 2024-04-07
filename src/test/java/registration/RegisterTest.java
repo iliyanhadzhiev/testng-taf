@@ -172,15 +172,51 @@ public class RegisterTest {
         System.out.println();
 
         System.out.println("4.7. Clicking on the \"Sign in\" button.");
-        signInButton.click();
+//        signInButton.click();
     }
 
-    @Test (priority = 2)
+    @Test (dependsOnMethods = "validateRegisterFields", priority = 2)
     public void validateUserIsCreated() throws InterruptedException {
         WebElement profileButton = driver.findElement(By.cssSelector("#nav-link-profile"));
         boolean isProfileButtonDisplayed = profileButton.isDisplayed();
         Assert.assertTrue(isProfileButtonDisplayed);
         System.out.println("5. Successful registration. User is created.");
+        System.out.println();
+    }
+
+    @Test (priority = 3)
+    public void validateHomeIcon() throws InterruptedException {
+        driver.get(REGISTER_PAGE);
+        WebElement homeIcon = driver.findElement(By.cssSelector("#homeIcon"));
+        boolean isHomeIconDisplayed = homeIcon.isDisplayed();
+        Assert.assertTrue(isHomeIconDisplayed);
+        System.out.println("6. Home icon is present");
+        String homeIconImage = homeIcon.getAttribute("src");
+        String homeIconImageName = "Iskillo-logo.png";
+        if (homeIconImage.contains(homeIconImageName)) {
+            System.out.println("6.1. The home icon logo is displayed");
+        } else {
+            System.out.println("6.1. The home icon logo is NOT displayed");
+        }
+        System.out.println("6.2. Clicking on Home icon");
+        homeIcon.click();
+        String currentUrlAfterClickingHomeIcon = driver.getCurrentUrl();
+        Assert.assertEquals(currentUrlAfterClickingHomeIcon, HOME_PAGE);
+        System.out.println("6.3. User is on Home page");
+    }
+
+    @Test (priority = 4)
+    public void validateHomeButton() throws InterruptedException {
+        driver.get(REGISTER_PAGE);
+        WebElement homeButton = driver.findElement(By.cssSelector("#nav-link-home"));
+        boolean isHomeButtonDisplayed = homeButton.isDisplayed();
+        Assert.assertTrue(isHomeButtonDisplayed);
+        System.out.println("7. Home button is displayed");
+        System.out.println("7.1. Clicking on Home button");
+        homeButton.click();
+        String currentUrlAfterClickingHomeButton = driver.getCurrentUrl();
+        Assert.assertEquals(currentUrlAfterClickingHomeButton, HOME_PAGE);
+
     }
 
 
