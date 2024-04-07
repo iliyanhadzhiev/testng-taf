@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -146,15 +145,48 @@ public class RegisterTest {
         String signInButtonText = signInButton.getText();
         Assert.assertEquals(signInButtonText, "Sign in");
         System.out.println("3.7. \"Sign in\" button has text: " + signInButtonText);
+        System.out.println();
 
+        System.out.println("4. Validating successful registration: ");
+
+        System.out.println("4.1. Populating username: IliyanH");
+        typeTextInInput(usernameField, "IliyanH");
+
+        System.out.println("4.2. Populating email: i1-test@test.i1");
+        typeTextInInput(emailField, "i1-test@test.i1");
+
+        System.out.println("4.3. Populating date of birth: 11/22/1980");
+        birthDateField.click();
+        birthDateField.sendKeys("11/22/1980");
+
+        System.out.println("4.4. Populating password: i1$qual!Ty");
+        typeTextInInput(passwordField, "i1$qual!Ty");
+
+        System.out.println("4.5. Populating confirm password: i1$qual!Ty");
+        typeTextInInput(confirmPasswordField, "i1$qual!Ty");
+
+        System.out.println("4.6. Populating public info: i1");
+        typeTextInInput(publicInfoField, "i1");
+        System.out.println();
+
+        System.out.println("5. Completing registration. Clicking on the \"Sign in\" button.");
+        signInButton.click();
     }
 
 
-    @AfterClass
-    public void closeBrowser() {
-        if (driver != null) {
-            driver.quit();
-        }
+
+    public void typeTextInInput(WebElement element, String text) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.clear();
+        element.sendKeys(text);
     }
+
+
+//    @AfterClass
+//    public void closeBrowser() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 
 }
