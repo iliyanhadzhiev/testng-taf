@@ -233,6 +233,13 @@ public class RegisterTest {
         System.out.println("8.2. User is on the Login page");
     }
 
+    @Test (priority = 6)
+    public void validateMandatoryFieldWarning() throws InterruptedException {
+        driver.get(REGISTER_PAGE);
+        //h4[contains(@class,'text-center mb-4')]
+        //
+    }
+
     public void typeTextInInput(WebElement element, String text) {
         wait.until(ExpectedConditions.visibilityOf(element));
         element.clear();
