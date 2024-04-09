@@ -14,10 +14,10 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class RegisterTest {
-    public static final String BASE_URL = "http://training.skillo-bg.com:4300/";
-    public static final String HOME_PAGE = BASE_URL + "posts/all";
-    public static final String LOGIN_PAGE = BASE_URL + "users/login";
-    public static final String REGISTER_PAGE = BASE_URL + "users/register";
+    public static final String BASE_URL = "http://training.skillo-bg.com:4300";
+    public static final String HOME_PAGE = BASE_URL + "/posts/all";
+    public static final String LOGIN_PAGE = BASE_URL + "/users/login";
+    public static final String REGISTER_PAGE = BASE_URL + "/users/register";
 
     WebDriver driver = new ChromeDriver();
     WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
