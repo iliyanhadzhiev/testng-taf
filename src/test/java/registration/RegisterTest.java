@@ -29,7 +29,7 @@ public class RegisterTest {
     }
 
     @Test (priority = 0)
-    public void validateRegisterNavigation() throws InterruptedException {
+    public void validateRegisterNavigation() {
         driver.get(BASE_URL);
         System.out.println("1. Validating navigation to Register page:");
 
@@ -75,7 +75,7 @@ public class RegisterTest {
     }
 
     @Test (dependsOnMethods = "validateRegisterNavigation", priority = 1)
-    public void validateRegisterFields() throws InterruptedException {
+    public void validateRegisterFields() {
         System.out.println("2. Validating presence of register fields:");
 
         WebElement usernameField = driver.findElement(By.xpath("//input[contains(@formcontrolname,'username')]"));
@@ -176,7 +176,7 @@ public class RegisterTest {
     }
 
     @Test (dependsOnMethods = "validateRegisterFields", priority = 2)
-    public void validateUserIsCreated() throws InterruptedException {
+    public void validateUserIsCreated() {
         WebElement profileButton = driver.findElement(By.cssSelector("#nav-link-profile"));
         boolean isProfileButtonDisplayed = profileButton.isDisplayed();
         Assert.assertTrue(isProfileButtonDisplayed);
@@ -185,7 +185,7 @@ public class RegisterTest {
     }
 
     @Test (priority = 3)
-    public void validateHomeIcon() throws InterruptedException {
+    public void validateHomeIcon() {
         driver.get(REGISTER_PAGE);
         WebElement homeIcon = driver.findElement(By.cssSelector("#homeIcon"));
         boolean isHomeIconDisplayed = homeIcon.isDisplayed();
@@ -206,7 +206,7 @@ public class RegisterTest {
     }
 
     @Test (priority = 4)
-    public void validateHomeButton() throws InterruptedException {
+    public void validateHomeButton() {
         driver.get(REGISTER_PAGE);
         WebElement homeButton = driver.findElement(By.cssSelector("#nav-link-home"));
         boolean isHomeButtonDisplayed = homeButton.isDisplayed();
@@ -220,7 +220,7 @@ public class RegisterTest {
     }
 
     @Test (priority = 5)
-    public void validateLoginButton() throws InterruptedException {
+    public void validateLoginButton() {
         driver.get(REGISTER_PAGE);
         WebElement loginButton = driver.findElement(By.cssSelector("#nav-link-login"));
         boolean isLoginButtonDisplayed = loginButton.isDisplayed();
@@ -234,7 +234,7 @@ public class RegisterTest {
     }
 
     @Test (priority = 6)
-    public void validateMandatoryFieldWarning() throws InterruptedException {
+    public void validateMandatoryFieldWarning() {
         driver.get(REGISTER_PAGE);
         //h4[contains(@class,'text-center mb-4')]
         //
